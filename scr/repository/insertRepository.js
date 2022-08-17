@@ -10,8 +10,18 @@ async function postCake(name,price,image,description){
       
 }
 
+async function postClient(name,address,phone){
+  return await connection.query(`
+  INSERT INTO clients 
+  (name,address,phone)
+  VALUES ($1,$2,$3)`,
+    [name,address,phone]
+  )
+}
+
 const insertRepository = {
-  postCake
+  postCake,
+  postClient
 }
 
 export default insertRepository
