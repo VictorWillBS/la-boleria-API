@@ -19,9 +19,19 @@ async function postClient(name,address,phone){
   )
 }
 
+async function postOrder(clientId,cakeId,quantity,totalPrice,timestamp){
+  return await connection.query(`
+  INSERT INTO orders
+  ("clientId","cakeId","quantity","totalPrice","createdAt")
+  VALUES ($1,$2,$3,$4,to_timestamp($5/1000.0))`,
+    [clientId,cakeId,quantity,totalPrice,timestamp]
+  )
+}
+
 const insertRepository = {
   postCake,
-  postClient
+  postClient,
+  postOrder
 }
 
 export default insertRepository
