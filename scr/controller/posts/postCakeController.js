@@ -1,5 +1,5 @@
-import insertRepository from "../repository/insertRepository.js"
-import postCakeValid from "../assets/postCakesValids.js"
+import insertRepository from "../../repository/insertRepository.js"
+import postCakeValid from "../../assets/postCakesValids.js"
 
 export async function postCake(req,res){
   const {name,price,image,description} = req.body

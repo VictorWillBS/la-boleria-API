@@ -1,5 +1,5 @@
-import insertRepository from "../repository/insertRepository.js";
-import postClientValid from "../assets/postClientsValids.js";
+import insertRepository from "../../repository/insertRepository.js";
+import postClientValid from "../../assets/postClientsValids.js";
 export async function postClients(req,res){
   const {name,address,phone} = req.body
   const codeErrorValid = postClientValid(name,address,phone)
