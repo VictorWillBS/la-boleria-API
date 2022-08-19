@@ -24,7 +24,7 @@ async function getClientById (clientId){
 async function getOrder (date,limiteDate){
 
   if(date){
-    console.log("entrei")
+   
     return await connection.query(`
     SELECT to_json(clients.*) AS client, to_json(cakes.*) AS cake,orders.* from orders
     INNER JOIN clients ON 

@@ -14,8 +14,6 @@ export async function postOrder(req,res){
 
   try {
     const timestamp = new Date().getTime();
-    const queryTimestamp = `to_timestamp(${timestamp})/1000.0 `
-    console.log(timestamp)
     await insertRepository.postOrder(clientId,cakeId,quantity,totalPrice,timestamp)
     res.sendStatus(201)
   } catch (error) {

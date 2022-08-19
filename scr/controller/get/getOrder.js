@@ -1,14 +1,13 @@
 import selectRepository from "../../repository/selectRepository.js";
 import parseDateToStringForm from "../../assets/parseToDateForm.js";
 export async function getOrder(req,res){
-  console.log("essa é a query " + req.query.date)
-
-
   const {date} = req.query? req.query : undefined;
   const re = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/
+
   if(date && !re.test(date)){
     return res.sendStatus(400)
   }
+  
   const endDayTimestamp = 86350 * 1000;
   const timestampDate = Date.parse(`${date} 00:00`);
   const endDay= timestampDate + endDayTimestamp;

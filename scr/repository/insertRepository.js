@@ -11,6 +11,7 @@ async function postCake(name,price,image,description){
 }
 
 async function postClient(name,address,phone){
+
   return await connection.query(`
   INSERT INTO clients 
   (name,address,phone)
